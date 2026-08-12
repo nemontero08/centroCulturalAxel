@@ -8,6 +8,10 @@ const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./data/**/*.ts"],
   theme: {
     extend: {
+      screens: {
+        tablet: "700px",
+        desktop: "1040px",
+      },
       colors: {
         aqua: {
           50: "var(--aqua-050)",

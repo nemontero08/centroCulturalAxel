@@ -2,22 +2,21 @@ import Image from "next/image";
 import { site, type Membership } from "@/data/site";
 import Icon from "./Icon";
 
-export default function MembershipCard({
-  plan,
-  basis,
-}: {
-  plan: Membership;
-  basis: string;
-}) {
+/**
+ * Todas las tarjetas tienen exactamente el mismo tamaño.
+ * `featured` sólo cambia el borde y el color del botón.
+ */
+export default function MembershipCard({ plan }: { plan: Membership }) {
   const { cards } = site.layout;
   const height = cards.height ? `${cards.height}px` : "clamp(104px,20vw,150px)";
 
   return (
     <article
-      className={`relative flex shrink-0 grow-0 flex-col overflow-hidden rounded-lg bg-surface-card shadow-card ${
+      id={`plan-${plan.id}`}
+      style={{ scrollMarginTop: 14 }}
+      className={`relative flex shrink-0 grow-0 basis-full flex-col overflow-hidden rounded-lg bg-surface-card shadow-card tablet:basis-[calc((100%-14px)/2)] desktop:basis-[calc((100%-28px)/3)] ${
         plan.featured ? "border-2 border-aqua-400" : "border border-border-subtle"
       }`}
-      style={{ flexBasis: basis }}
     >
       <div className="relative bg-aqua-100" style={{ height }}>
         {plan.image ? (
@@ -39,13 +38,11 @@ export default function MembershipCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-2.5 px-[18px] pb-[18px] pt-4">
-        <div className="flex flex-col gap-0.5">
-          <div className="flex items-baseline gap-[3px] whitespace-nowrap">
-            <span className="text-[30px] font-extrabold tracking-[-0.02em] text-text-strong">
-              {plan.amount}
-            </span>
-            <span className="text-sm text-text-muted">{plan.period}</span>
-          </div>
+        <div className="flex items-baseline gap-[3px] whitespace-nowrap">
+          <span className="text-[30px] font-extrabold tracking-[-0.02em] text-text-strong">
+            {plan.amount}
+          </span>
+          <span className="text-sm text-text-muted">{plan.period}</span>
         </div>
 
         <a

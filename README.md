@@ -31,13 +31,16 @@ Abre http://localhost:3000
 | Encuadre y alto de las imágenes | `site.layout` |
 | Montos y links de Mercado Pago | `site.memberships` |
 | Preguntas frecuentes | `site.faqs` |
+| Resumen de montos del encabezado | `site.summary` |
 | Links de redes / footer | `site.footer` |
 | Texto al compartir | `site.share` |
 
 ### Agregar o quitar una membresía
 
-Agregá (o borrá) un objeto en `site.memberships`. El carrusel se recalcula solo
-—cantidad de páginas, puntos y flechas— y nunca deja una página con una sola tarjeta.
+Agregá (o borrá) un objeto en `site.memberships`. No hay carrusel: todas las
+tarjetas están visibles y **todas miden lo mismo** (1 columna en mobile, 2 en
+tablet, 3 en desktop; las que sobran en la última fila quedan centradas).
+`featured: true` sólo cambia el borde y el color del botón, no el tamaño.
 
 ```ts
 {
@@ -72,15 +75,14 @@ app/
   page.tsx          entrada
   globals.css       tokens del design system Arte y Parte + resets
 components/
-  MembershipPage.tsx      shell responsive (520 / 760 / 1040px)
+  MembershipPage.tsx      shell responsive (520px mobile / 1040px tablet+)
   ProfileHeader.tsx       portada, foto de perfil animada, título, aporte
   ShareButton.tsx         Web Share API con fallback a portapapeles
-  MembershipCarousel.tsx  carrusel con arrastre, flechas y puntos
-  MembershipCard.tsx      una tarjeta de membresía
+  MembershipGrid.tsx      grilla responsive de membresías (sin carrusel)
+  MembershipCard.tsx      tarjeta de membresía (normal y destacada)
   FaqList.tsx             acordeón
   SiteFooter.tsx          tiles de links (oculto por config)
   Icon.tsx                glifo de Material Symbols Rounded
-  useBreakpoint.ts        1 / 2 / 3 tarjetas por vista
 data/
   site.ts           ← ÚNICO archivo de contenido
 ```
@@ -91,7 +93,7 @@ data/
   están en `app/globals.css` y expuestos a Tailwind en `tailwind.config.ts`
   (`bg-aqua-600`, `text-text-muted`, `shadow-card`, `ease-standard`…).
 - Tipografía Nunito vía `next/font/google`; iconos Material Symbols Rounded.
-- El carrusel usa Pointer Events: arrastre en mobile, tablet y desktop, con
-  resistencia en los extremos y umbral de 50px para cambiar de página.
-- La primera pintura usa el layout de 1 tarjeta (igual que el original) y se
-  ajusta al medir el viewport, así no hay error de hidratación.
+- La grilla usa breakpoints CSS propios (`tablet`: 700px, `desktop`: 1040px),
+  sin JavaScript: no hay salto de layout ni error de hidratación.
+- Todas las tarjetas comparten el mismo tamaño; la destacada se diferencia sólo
+  por el borde aqua y el botón lleno.

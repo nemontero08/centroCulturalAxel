@@ -56,6 +56,12 @@ export const site = {
     text: "Sumate como socia o socio del Centro de estudios Proyecto Axel Presidente, Tandil.",
   },
 
+  /** Resumen informativo que se ve sin scroll, en el bloque del aporte. */
+  summary: {
+    label: "Podés aportar:",
+    amounts: "$10.000, $15.000, $20.000, $30.000, $50.000, $80.000 y $100.000.",
+  },
+
   sections: {
     membershipsTitle: "Elegí tu membresía",
     faqTitle: "Preguntas frecuentes",
@@ -68,7 +74,11 @@ export const site = {
     cards: { height: null as number | null, focusX: 50, focusY: 66 },
   },
 
-  /** Orden de las tarjetas = orden de este array. */
+  /**
+   * Orden de las tarjetas = orden de este array.
+   * Todas se muestran del mismo tamaño (1 columna en mobile, 2 en tablet,
+   * 3 en desktop). featured: true sólo cambia borde y botón.
+   */
   memberships: [
     {
       id: "10k",
@@ -167,16 +177,4 @@ export const site = {
       { label: "Mail", href: "mailto:hola@ccarteyparte.com.ar", icon: "mail" },
     ] satisfies SocialLink[],
   },
-};
-
-/** Métricas del carrusel — mismas que el diseño original. */
-export const carousel = {
-  gap: 14,
-  breakpoints: [
-    { minWidth: 1040, perView: 3, shellWidth: 1040 },
-    { minWidth: 700, perView: 2, shellWidth: 760 },
-    { minWidth: 0, perView: 1, shellWidth: 520 },
-  ],
-  dragThreshold: 50,
-  edgeResistance: 0.3,
 };

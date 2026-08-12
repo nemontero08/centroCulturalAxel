@@ -5,7 +5,7 @@ import { site } from "@/data/site";
 import Icon from "./Icon";
 import ShareButton from "./ShareButton";
 
-export default function ProfileHeader({ perView }: { perView: number }) {
+export default function ProfileHeader() {
   const { profile, layout } = site;
   const cover = layout.cover;
   const avatar = layout.avatar;
@@ -33,10 +33,7 @@ export default function ProfileHeader({ perView }: { perView: number }) {
       </div>
 
       <div className="relative z-[1] flex flex-col gap-3 px-[clamp(16px,4.5vw,30px)] pb-[26px]">
-        <div
-          className="flex items-end justify-between"
-          style={{ marginTop: perView === 1 ? "-14px" : "-42px" }}
-        >
+        <div className="flex items-end justify-between -mt-[14px] tablet:-mt-[42px]">
           <Image
             src={profile.avatar}
             alt={profile.avatarAlt}
@@ -64,9 +61,13 @@ export default function ProfileHeader({ perView }: { perView: number }) {
           </div>
         </div>
 
-        <p className="m-0 mt-1 rounded-lg bg-aqua-50 px-4 py-[14px] text-sm leading-[1.5] text-ink-600 [text-wrap:pretty]">
-          {profile.note}
-        </p>
+        <div className="mt-1 flex flex-col gap-2 rounded-lg bg-aqua-50 px-4 py-[14px]">
+          <p className="m-0 text-sm leading-[1.5] text-ink-600 [text-wrap:pretty]">{profile.note}</p>
+          <p className="m-0 text-sm leading-[1.5] text-text-muted [text-wrap:pretty]">
+            <strong className="font-bold text-aqua-700">{site.summary.label}</strong>{" "}
+            {site.summary.amounts}
+          </p>
+        </div>
       </div>
     </header>
   );
