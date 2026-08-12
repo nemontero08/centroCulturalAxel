@@ -6,23 +6,15 @@ import Icon from "./Icon";
  * Todas las tarjetas tienen exactamente el mismo tamaño.
  * `featured` sólo cambia el borde y el color del botón.
  */
-export default function MembershipCard({
-  plan,
-  basis,
-}: {
-  plan: Membership;
-  basis?: string;
-}) {
+export default function MembershipCard({ plan }: { plan: Membership }) {
   const { cards } = site.layout;
   const height = cards.height ? `${cards.height}px` : "clamp(104px,20vw,150px)";
 
   return (
     <article
       id={`plan-${plan.id}`}
- style={{
-    scrollMarginTop: 14,
-    ...(basis ? { flexBasis: basis } : {}),
-  }}      className={`relative flex shrink-0 grow-0 basis-full flex-col overflow-hidden rounded-lg bg-surface-card shadow-card tablet:basis-[calc((100%-14px)/2)] desktop:basis-[calc((100%-28px)/3)] ${
+      style={{ scrollMarginTop: 14 }}
+      className={`relative flex shrink-0 grow-0 basis-full flex-col overflow-hidden rounded-lg bg-surface-card shadow-card tablet:basis-[calc((100%-14px)/2)] desktop:basis-[calc((100%-28px)/3)] ${
         plan.featured ? "border-2 border-aqua-400" : "border border-border-subtle"
       }`}
     >

@@ -38,16 +38,11 @@ export type SocialLink = {
   icon: "instagram" | "facebook" | "language" | "mail" | (string & {});
 };
 
-export const carousel = {
-  gap: 16,
-  edgeResistance: 0.35,
-  dragThreshold: 50,
-};
 export const site = {
   profile: {
     name: "Centro de estudios Proyecto Axel Presidente",
     location: "Tandil, Buenos Aires · Belgrano 432",
-    note: "Con tu aporte mensual ayudás a pagar el alquiler y estudio de este lugar.",
+    note: "Con tu aporte mensual ayudás a pagar el alquiler y el mantenimiento de este lugar.",
     avatar: "/images/mano-v.webp",
     avatarAlt: "Mano haciendo la V",
     cover: "/images/portada.jpeg",
