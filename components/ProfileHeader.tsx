@@ -61,13 +61,9 @@ export default function ProfileHeader() {
           </div>
         </div>
 
-        <div className="mt-1 flex flex-col gap-2 rounded-lg bg-aqua-50 px-4 py-[14px]">
-          <p className="m-0 text-sm leading-[1.5] text-ink-600 [text-wrap:pretty]">{profile.note}</p>
-          <p className="m-0 text-sm leading-[1.5] text-text-muted [text-wrap:pretty]">
-            <strong className="font-bold text-aqua-700">{site.summary.label}</strong>{" "}
-            {site.summary.amounts}
-          </p>
-        </div>
+        <p className="m-0 mt-1 rounded-lg bg-aqua-50 px-4 py-[14px] text-sm leading-[1.5] text-ink-600 [text-wrap:pretty]">
+          {profile.note}
+        </p>
       </div>
     </header>
   );

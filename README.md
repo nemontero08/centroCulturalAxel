@@ -29,18 +29,16 @@ Abre http://localhost:3000
 | Nombre, ubicación, texto del aporte | `site.profile` |
 | Foto de portada y foto de perfil | `site.profile.cover` / `site.profile.avatar` |
 | Encuadre y alto de las imágenes | `site.layout` |
-| Montos y links de Mercado Pago | `site.memberships` |
+| Montos, imágenes y links de Mercado Pago | `site.memberships` |
+| Títulos y textos de la sección de aporte | `site.sections` |
 | Preguntas frecuentes | `site.faqs` |
-| Resumen de montos del encabezado | `site.summary` |
 | Links de redes / footer | `site.footer` |
 | Texto al compartir | `site.share` |
 
-### Agregar o quitar una membresía
+### Agregar o quitar un monto
 
-Agregá (o borrá) un objeto en `site.memberships`. No hay carrusel: todas las
-tarjetas están visibles y **todas miden lo mismo** (1 columna en mobile, 2 en
-tablet, 3 en desktop; las que sobran en la última fila quedan centradas).
-`featured: true` sólo cambia el borde y el color del botón, no el tamaño.
+Agregá (o borrá) un objeto en `site.memberships`. Cada uno es una pill; el
+primero del array viene seleccionado al abrir la página.
 
 ```ts
 {
@@ -48,16 +46,17 @@ tablet, 3 en desktop; las que sobran en la última fila quedan centradas).
   amount: "$25.000",
   period: "/mes",
   url: "https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=...",
-  image: "/images/mi-foto.jpg", // o null para el placeholder aqua
-  featured: false,               // true = borde aqua + botón lleno
+  image: "/images/mi-foto.jpg",
+  imageAlt: "Descripción de la foto",
 }
 ```
 
+
 ### Imágenes
 
-Ya están todas puestas en `public/images/` (portada, foto de perfil y las 7 tarjetas).
+Ya están todas puestas en `public/images/` (portada, foto de perfil y una por monto).
 Para cambiar una: copiá el archivo nuevo a `public/images/` y actualizá `image` en
-`data/site.ts`. Con `image: null` la tarjeta muestra un placeholder aqua.
+`data/site.ts`.
 
 ### Mostrar el footer
 
@@ -78,8 +77,7 @@ components/
   MembershipPage.tsx      shell responsive (520px mobile / 1040px tablet+)
   ProfileHeader.tsx       portada, foto de perfil animada, título, aporte
   ShareButton.tsx         Web Share API con fallback a portapapeles
-  MembershipGrid.tsx      grilla responsive de membresías (sin carrusel)
-  MembershipCard.tsx      tarjeta de membresía (normal y destacada)
+  MembershipSelector.tsx  pills de montos + panel con imagen y botón
   FaqList.tsx             acordeón
   SiteFooter.tsx          tiles de links (oculto por config)
   Icon.tsx                glifo de Material Symbols Rounded
@@ -93,7 +91,7 @@ data/
   están en `app/globals.css` y expuestos a Tailwind en `tailwind.config.ts`
   (`bg-aqua-600`, `text-text-muted`, `shadow-card`, `ease-standard`…).
 - Tipografía Nunito vía `next/font/google`; iconos Material Symbols Rounded.
-- La grilla usa breakpoints CSS propios (`tablet`: 700px, `desktop`: 1040px),
-  sin JavaScript: no hay salto de layout ni error de hidratación.
-- Todas las tarjetas comparten el mismo tamaño; la destacada se diferencia sólo
-  por el borde aqua y el botón lleno.
+- El selector usa breakpoints CSS propios (`tablet`: 700px, `desktop`: 1040px);
+  el panel es horizontal en tablet/desktop y vertical en mobile.
+- Las 7 imágenes se montan juntas y se alterna la visible, así cambiar de monto
+  es instantáneo y no parpadea.

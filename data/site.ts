@@ -19,13 +19,11 @@ export type Membership = {
   period: string;
   /** Link de suscripción de Mercado Pago. */
   url: string;
-  /** Imagen de la tarjeta. Dejar null para mostrar el placeholder aqua. */
+  /** Imagen que se muestra al elegir este monto. */
   image: string | null;
   /** alt de la imagen. */
   imageAlt?: string;
-  /** true = tarjeta destacada (borde aqua + botón lleno). */
-  featured?: boolean;
-  /** Texto del botón. */
+  /** Texto del botón, antes del monto. Por defecto "Colaborar con". */
   cta?: string;
 };
 
@@ -42,7 +40,7 @@ export const site = {
   profile: {
     name: "Centro de estudios Proyecto Axel Presidente",
     location: "Tandil, Buenos Aires · Belgrano 432",
-    note: "Con tu aporte mensual ayudás a pagar el alquiler y el mantenimiento de este lugar.",
+    note: "Con tu aporte mensual ayudás a pagar el alquiler y el mantenimiento de este espacio.",
     avatar: "/images/mano-v.webp",
     avatarAlt: "Mano haciendo la V",
     cover: "/images/portada.jpeg",
@@ -56,28 +54,24 @@ export const site = {
     text: "Sumate como socia o socio del Centro de estudios Proyecto Axel Presidente, Tandil.",
   },
 
-  /** Resumen informativo que se ve sin scroll, en el bloque del aporte. */
-  summary: {
-    label: "Podés aportar:",
-    amounts: "$10.000, $15.000, $20.000, $30.000, $50.000, $80.000 y $100.000.",
-  },
-
   sections: {
-    membershipsTitle: "Elegí tu membresía",
+    membershipsTitle: "Elegí cuánto aportar",
+    membershipsNote: "Elegí un monto y confirmá abajo. Te lleva a Mercado Pago para suscribirte.",
+    membershipsFinePrint:
+      "Se debita una vez por mes por Mercado Pago y lo cancelás cuando quieras, sin permanencia mínima.",
     faqTitle: "Preguntas frecuentes",
   },
 
-  /** Encuadre de las imágenes. height/size en px; null = alto responsive original. */
+  /** Encuadre de las imágenes. height/size en px; null = alto responsive. */
   layout: {
     cover: { height: 320, focusX: 100, focusY: 37, zoom: 100 },
     avatar: { size: null as number | null, focusX: 50, focusY: 50 },
-    cards: { height: null as number | null, focusX: 50, focusY: 66 },
+    cards: { focusX: 50, focusY: 66 },
   },
 
   /**
-   * Orden de las tarjetas = orden de este array.
-   * Todas se muestran del mismo tamaño (1 columna en mobile, 2 en tablet,
-   * 3 en desktop). featured: true sólo cambia borde y botón.
+   * Orden de los montos = orden de este array. El primero viene
+   * seleccionado al abrir la página.
    */
   memberships: [
     {
@@ -87,7 +81,6 @@ export const site = {
       url: "https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=14a8eb09a67b4c37a38d627b3610d0f3",
       image: "/images/plan-10k.webp",
       imageAlt: "Actividad en el centro cultural",
-      featured: true,
     },
     {
       id: "15k",
