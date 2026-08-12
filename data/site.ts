@@ -38,6 +38,11 @@ export type SocialLink = {
   icon: "instagram" | "facebook" | "language" | "mail" | (string & {});
 };
 
+export const carousel = {
+  gap: 16,
+  edgeResistance: 0.35,
+  dragThreshold: 50,
+};
 export const site = {
   profile: {
     name: "Centro de estudios Proyecto Axel Presidente",

@@ -6,7 +6,13 @@ import Icon from "./Icon";
  * Todas las tarjetas tienen exactamente el mismo tamaño.
  * `featured` sólo cambia el borde y el color del botón.
  */
-export default function MembershipCard({ plan }: { plan: Membership }) {
+export default function MembershipCard({
+  plan,
+  basis,
+}: {
+  plan: Membership;
+  basis: string;
+}) {
   const { cards } = site.layout;
   const height = cards.height ? `${cards.height}px` : "clamp(104px,20vw,150px)";
 
