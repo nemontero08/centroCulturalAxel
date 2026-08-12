@@ -130,7 +130,7 @@ export const site = {
       image: "/images/plan-100k.png",
       imageAlt: "Collage con brazos en alto",
     },
-  ] satisfies Membership[],
+  ] as Membership[],
 
   faqs: [
     {
@@ -153,7 +153,7 @@ export const site = {
       q: "¿Puedo cambiar de plan?",
       a: "Cuando quieras. Cancelás el actual y te asociás al nuevo desde esta misma página. Si necesitás ayuda, escribinos al 2494 572256.",
     },
-  ] satisfies Faq[],
+  ] as Faq[],
 
   /**
    * Footer oculto hasta tener los links definitivos.
@@ -168,6 +168,6 @@ export const site = {
       { label: "Facebook", href: "https://www.facebook.com/arteypartecc", icon: "facebook" },
       { label: "Sitio web", href: "https://ccarteyparte.com.ar/", icon: "language" },
       { label: "Mail", href: "mailto:hola@ccarteyparte.com.ar", icon: "mail" },
-    ] satisfies SocialLink[],
+    ] as SocialLink[],
   },
 };
