@@ -40,7 +40,7 @@ export const site = {
   profile: {
     name: "Centro de estudios Proyecto Axel Presidente",
     location: "Tandil, Buenos Aires · Belgrano 432",
-    note: "Con tu aporte mensual ayudás a pagar el alquiler y el mantenimiento de este espacio.",
+    note: "Con tu aporte mensual sostenemos los gastos fijos del Centro de estudios: alquiler, luz, gas y otros derivados de las actividades que realicemos.",
     avatar: "/images/mano-v.webp",
     avatarAlt: "Mano haciendo la V",
     cover: "/images/portada.jpeg",
@@ -58,7 +58,7 @@ export const site = {
     membershipsTitle: "Elegí cuánto aportar",
     membershipsNote: "Elegí un monto y confirmá abajo. Te lleva a Mercado Pago para suscribirte.",
     membershipsFinePrint:
-      "Se debita una vez por mes por Mercado Pago y lo cancelás cuando quieras, sin permanencia mínima.",
+      "Se debita una vez por mes por Mercado Pago y lo cancelás cuando quieras, sin permanencia mínima. Con ese monto sostenemos los gastos fijos del Centro de estudios: alquiler, luz, gas y otros derivados de las actividades que realicemos.",
     faqTitle: "Preguntas frecuentes",
   },
 
