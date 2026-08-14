@@ -39,7 +39,7 @@ export type SocialLink = {
 export const site = {
   profile: {
     name: "Centro de estudios Proyecto Axel Presidente",
-    location: "Tandil, Buenos Aires · Belgrano 432",
+    location: "Tandil, Buenos Aires · Belgrano 342",
     note: "Con tu aporte mensual sostenemos los gastos fijos del Centro de estudios: alquiler, luz, gas y otros derivados de las actividades que realicemos.",
     avatar: "/images/mano-v.webp",
     avatarAlt: "Mano haciendo la V",
