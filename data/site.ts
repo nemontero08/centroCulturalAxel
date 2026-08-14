@@ -135,7 +135,7 @@ export const site = {
   faqs: [
     {
       q: "¿Cómo funciona la membresía?",
-      a: "Elegís un plan y te suscribís por Mercado Pago. Todos los meses se debita el mismo monto y con eso sostenemos talleres, materiales y actividades abiertas del centro.",
+      a: "Elegís un plan y te suscribís con Mercado Pago. Cada mes se te cobra el mismo monto automáticamente.",
     },
     {
       q: "¿Puedo cancelarla cuando quiera?",
